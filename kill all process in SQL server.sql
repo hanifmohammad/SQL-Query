@@ -9,3 +9,8 @@ and session_id<>(SELECT @@SPID AS CurrentSPID)
 and session_id<>('70')
 and [status] in ('running','sleeping')
 EXEC(@kill);
+
+
+------------------------
+SELECT * FROM sys.dm_exec_requests
+WHERE blocking_session_id <> 0;
